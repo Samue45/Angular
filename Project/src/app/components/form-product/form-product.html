@@ -1,1 +1,13 @@
-<p>form-product works!</p>
+<h2>Create a new Product</h2>
+
+<form (ngSubmit) = "addProduct(name.value, price.value)">
+<label for="name">Name</label>
+<input #name type="text" id="name" name="name" required>
+<br>
+
+<label for="price">Price</label>
+<input #price type="number" id="price" name="price" required>
+<br>
+
+<button type="submit">Submit</button>
+</form>

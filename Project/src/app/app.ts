@@ -1,23 +1,26 @@
-import { Component, EventEmitter, Input, Output, signal } from '@angular/core';
+import { Component, EventEmitter } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { ProductComponent } from './components/product-component/product-component';
+import { FormProduct } from './components/form-product/form-product';
 import { ProductI } from './components/interfaces/product-i';
 import { ProductService } from './service/product-service';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, ProductComponent],
+  imports: [RouterOutlet, FormProduct],
   templateUrl: './app.html',
   styleUrl: './app.scss'
 })
 export class App {
-   public arrayProductos : ProductI[];
 
-
-  @Output() product = new EventEmitter<ProductI>();
+  public newProduct: EventEmitter<ProductI> = new EventEmitter<ProductI>();
+  private arrayProducts: ProductI[];
 
   constructor(private productoService: ProductService) { 
-    this.arrayProductos = this.productoService.getAllProducts();
+    this.arrayProducts = this.productoService.getAllProducts();
+  }
+
+  public getArrayProducts() : ProductI[]{
+    return this.arrayProducts;
   }
 
   public addProduct(id: string, name: string, price: string) {

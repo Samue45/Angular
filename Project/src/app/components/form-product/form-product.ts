@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
+import { ProductI } from '../interfaces/product-i';
 
 @Component({
   selector: 'app-form-product',
@@ -7,5 +8,10 @@ import { Component } from '@angular/core';
   styleUrl: './form-product.scss'
 })
 export class FormProduct {
+
+  // Child component need to send data to parent component
+  @Output() newProduct = new EventEmitter<ProductI>();
+
+  public addProduct(name:string, price:string){}
 
 }
