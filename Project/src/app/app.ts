@@ -12,7 +12,6 @@ import { ProductService } from './service/product-service';
 })
 export class App {
 
-  public newProduct: EventEmitter<ProductI> = new EventEmitter<ProductI>();
   private arrayProducts: ProductI[];
 
   constructor(private productoService: ProductService) { 
@@ -23,9 +22,10 @@ export class App {
     return this.arrayProducts;
   }
 
-  public addProduct(id: string, name: string, price: string) {
+  public addProduct(product: ProductI) {
     try {
-      this.productoService.addProduct(Number(id), name, Number(price));
+      // Adding new product using the service
+      this.productoService.addProduct(Number(product.id) , product.name, Number(product.price));
     } catch (error) {
       if (error instanceof Error) {
         console.error('Error adding product:', error.message);
