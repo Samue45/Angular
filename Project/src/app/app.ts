@@ -3,16 +3,17 @@ import { RouterOutlet } from '@angular/router';
 import { FormProduct } from './components/form-product/form-product';
 import { ProductI } from './components/interfaces/product-i';
 import { ProductService } from './service/product-service';
+import { ListProduct } from './components/list-product/list-product';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, FormProduct],
+  imports: [RouterOutlet, FormProduct, ListProduct],
   templateUrl: './app.html',
-  styleUrl: './app.scss'
+  styleUrls: ['./app.scss']
 })
 export class App {
 
-  private arrayProducts: ProductI[];
+  public arrayProducts: ProductI[];
 
   constructor(private productoService: ProductService) { 
     this.arrayProducts = this.productoService.getAllProducts();
