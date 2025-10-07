@@ -4,10 +4,11 @@ import { FormProduct } from './components/form-product/form-product';
 import { ProductI } from './components/interfaces/product-i';
 import { ProductService } from './service/product-service';
 import { ListProduct } from './components/list-product/list-product';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, FormProduct, ListProduct],
+  imports: [RouterOutlet, FormProduct, ListProduct, CommonModule],
   templateUrl: './app.html',
   styleUrls: ['./app.scss']
 })
