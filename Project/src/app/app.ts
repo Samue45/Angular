@@ -1,4 +1,4 @@
-import { Component, EventEmitter } from '@angular/core';
+import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { FormProduct } from './components/form-product/form-product';
 import { ProductI } from './components/interfaces/product-i';

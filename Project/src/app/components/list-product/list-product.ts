@@ -10,10 +10,10 @@ import { ProductI } from '../interfaces/product-i';
 })
 export class ListProduct {
 
-  @Input() arrayProducts: ProductI[];
+  @Input() product: ProductI;
 
   constructor(){
-    this.arrayProducts = [];
+    this.product = {id: 0, name: "", price: 0};
   }
 
 }

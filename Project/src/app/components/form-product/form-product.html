@@ -1,22 +1,16 @@
-<h2>Create a new Product</h2>
+<div class="product-form">
+  <h2>Create a new Product</h2>
 
-<form (ngSubmit) = "sendProduct()">
-    
-    <label >Id</label> 
-    <br>
-    <input #id type="text" [(ngModel)] = "newProductObject.id" name="id" required>
-    <br>
-
+  <form (ngSubmit)="sendProduct()">
+    <label>Id</label>
+    <input  type="number" [(ngModel)]="newProductObject.id" name="id" required />
 
     <label>Name</label>
-    <br>
-    <input #name type="text" [(ngModel)] = "newProductObject.name" name="name" required>
-    <br>
+    <input  type="text" [(ngModel)]="newProductObject.name" name="name" required />
 
-    <label >Price</label>
-    <br>
-    <input #price type="number" [(ngModel)] = "newProductObject.price" name="price" required>
-    <br>
+    <label>Price</label>
+    <input  type="number" [(ngModel)]="newProductObject.price" name="price" required />
 
     <button type="submit">Submit</button>
-</form>
+  </form>
+</div>

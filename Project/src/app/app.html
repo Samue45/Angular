@@ -1,9 +1,18 @@
-<app-form-product (newProduct)="addProduct($event)"> </app-form-product>
-<app-list-product [arrayProducts]="arrayProducts"></app-list-product>
-<!--Define child 2 like an item and use a ngFor to create an item for each object-->
-<!--<item *ngFor = "let product in arrayProducts">
+<div class="product-page">
+  <h1>Product Manager</h1>
 
-    
-    
-</item>
--->
+  <!-- Chhild 1-->
+  <app-form-product (newProduct)="addProduct($event)"></app-form-product>
+
+  <!-- Chhild 2-->
+  <div class="product-list" *ngIf="arrayProducts.length > 0; else noProducts">
+    <app-list-product
+      *ngFor="let product of arrayProducts"
+      [product]="product"
+    ></app-list-product>
+  </div>
+
+  <ng-template #noProducts>
+    <div class="empty">No products added yet 🧺</div>
+  </ng-template>
+</div>
