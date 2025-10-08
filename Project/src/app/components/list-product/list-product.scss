@@ -59,4 +59,31 @@ $product-card-padding: 16px;
     .product-name { max-width: 100%; }
     .product-price { align-self: flex-end; }
   }
+
+  .btn-delete {
+  background-color: #e74c3c; // rojo intenso
+  color: white;
+  border: none;
+  border-radius: 50%; // lo hace circular
+  width: 30px;
+  height: 30px;
+  font-weight: bold;
+  font-size: 16px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+
+  &:hover {
+    background-color: #c0392b; // rojo más oscuro al pasar el mouse
+    transform: scale(1.1); // pequeño efecto de zoom
+  }
+
+  &:focus {
+    outline: none; // quitar el borde de enfoque por defecto
+    box-shadow: 0 0 0 2px rgba(231, 76, 60, 0.5); // efecto de enfoque personalizado
+  }
+}
+
 }

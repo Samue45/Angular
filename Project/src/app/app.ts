@@ -28,6 +28,8 @@ export class App {
     try {
       // Adding new product using the service
       this.productoService.addProduct(Number(product.id) , product.name, Number(product.price));
+      // Adding new product to arrayProducts
+      this.arrayProducts.push(product);
     } catch (error) {
       if (error instanceof Error) {
         console.error('Error adding product:', error.message);
@@ -36,9 +38,10 @@ export class App {
       }
     }
   }
-  public removeProduct(id: String) {
+  public removeProduct(id: Number) {
     try {
       this.productoService.removeProduct(Number(id));
+      this.deleteProductList(id);
     } catch (error) {
       if (error instanceof Error) {
         console.error('Error removing product:', error.message);
@@ -58,5 +61,10 @@ export class App {
         console.error('Unexpected error', error);
       }
     }
+  }
+
+  // Auxiliar method
+  public deleteProductList(id: Number) : void{
+    this.arrayProducts = this.arrayProducts.filter((p) => p.id !== id);
   }
 }

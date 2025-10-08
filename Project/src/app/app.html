@@ -9,6 +9,7 @@
     <app-list-product
       *ngFor="let product of arrayProducts"
       [product]="product"
+      (idProduct)="removeProduct($event)"
     ></app-list-product>
   </div>
 
