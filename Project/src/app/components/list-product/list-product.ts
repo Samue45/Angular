@@ -11,6 +11,7 @@ import { ProductI } from '../interfaces/product-i';
 export class ListProduct {
 
   @Input() product: ProductI;
+  @Input() color: string = '';
   @Output() idProduct= new EventEmitter<Number>();
 
   constructor(){

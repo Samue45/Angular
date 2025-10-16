@@ -5,16 +5,18 @@ import { ProductI } from './components/interfaces/product-i';
 import { ProductService } from './service/product-service';
 import { ListProduct } from './components/list-product/list-product';
 import { CommonModule } from '@angular/common';
+import { Header } from './components/header/header';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, FormProduct, ListProduct, CommonModule],
+  imports: [RouterOutlet, FormProduct, ListProduct, CommonModule,Header],
   templateUrl: './app.html',
   styleUrls: ['./app.scss']
 })
 export class App {
 
   public arrayProducts: ProductI[];
+  public color: string = 'white';
 
   constructor(private productoService: ProductService) { 
     this.arrayProducts = this.productoService.getAllProducts();
@@ -66,5 +68,9 @@ export class App {
   // Auxiliar method
   public deleteProductList(id: Number) : void{
     this.arrayProducts = this.arrayProducts.filter((p) => p.id !== id);
+  }
+
+  public changeStyleItems(): void {
+    this.color = this.color === 'white' ? 'lightblue' : 'white';
   }
 }

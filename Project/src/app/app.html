@@ -1,6 +1,13 @@
-<div class="product-page">
-  <h1>Product Manager</h1>
 
+<app-header>
+  <img  header-left src="../assets/bird.png" alt="Logo">
+  <h1 header-center>Product list</h1>
+  <button  header-right (click)="changeStyleItems()">Change colors</button>
+</app-header>
+
+
+<div class="product-page">
+  
   <!-- Chhild 1-->
   <app-form-product (newProduct)="addProduct($event)"></app-form-product>
 
@@ -9,6 +16,7 @@
     <app-list-product
       *ngFor="let productP of arrayProducts"
       [product]="productP"
+      [color]="color"
       (idProduct)="removeProduct($event)"
     ></app-list-product>
   </div>
