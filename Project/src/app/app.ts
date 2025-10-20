@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef, QueryList, ViewChildren } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { FormProduct } from './components/form-product/form-product';
 import { ProductI } from './components/interfaces/product-i';
@@ -16,11 +16,13 @@ import { Header } from './components/header/header';
 export class App {
 
   public arrayProducts: ProductI[];
-  public color: string = 'white';
+  @ViewChildren(ListProduct) itemsProduct!: QueryList<ListProduct>;
+
 
   constructor(private productoService: ProductService) { 
     this.arrayProducts = this.productoService.getAllProducts();
   }
+
 
   public getArrayProducts() : ProductI[]{
     return this.arrayProducts;
@@ -71,6 +73,16 @@ export class App {
   }
 
   public changeStyleItems(): void {
-    this.color = this.color === 'white' ? 'lightblue' : 'white';
+   this.itemsProduct.forEach(item => {
+    // Buscar el div con clase product-card dentro del hijo
+    const card = item.elementRef.nativeElement.querySelector('.product-card') as HTMLElement;
+    if (!card) return;
+
+    // Alternar color
+    const currentColor = card.style.backgroundColor;
+    card.style.backgroundColor = currentColor === 'lightgreen' ? 'white' : 'lightgreen';
+    });
   }
 }
+
+

@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, ElementRef, EventEmitter, Input, Output } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ProductI } from '../interfaces/product-i';
 
@@ -11,10 +11,9 @@ import { ProductI } from '../interfaces/product-i';
 export class ListProduct {
 
   @Input() product: ProductI;
-  @Input() color: string = '';
   @Output() idProduct= new EventEmitter<Number>();
 
-  constructor(){
+  constructor(public elementRef: ElementRef) {
     this.product = {id: 0, name: "", price: 0};
   }
 
