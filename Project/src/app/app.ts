@@ -6,10 +6,11 @@ import { ProductService } from './service/product-service';
 import { ListProduct } from './components/list-product/list-product';
 import { CommonModule } from '@angular/common';
 import { Header } from './components/header/header';
+import { LinkStyle } from './directives/link-style';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, FormProduct, ListProduct, CommonModule,Header],
+  imports: [RouterOutlet, FormProduct, ListProduct, CommonModule,Header, LinkStyle],
   templateUrl: './app.html',
   styleUrls: ['./app.scss']
 })
