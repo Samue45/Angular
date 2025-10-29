@@ -1,7 +1,7 @@
 
 <app-header>
   <img  header-img src="img/bird.png" alt="Logo">
-  <h1 header-title>Product list</h1>
+  <h1 header-title > {{ 'Product list' | cambiarTexto}} </h1>
   <button  header-btn (click)="changeStyleItems()">Change colors</button>
 </app-header>
 
@@ -11,7 +11,7 @@
   <!-- Chhild 1-->
   <app-form-product (newProduct)="addProduct($event)"></app-form-product>
 
-  <a href="https://theuselessweb.com/" appLinkStyle>Random web site</a>
+  <a href="https://theuselessweb.com/" appLinkStyle target="_blank">Random web site</a>
 
   <!-- Chhild 2-->
    <!-- Variable name = itemProduct-->
