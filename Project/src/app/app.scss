@@ -79,9 +79,11 @@ $page-border: #16d85d;
     }
   }
 
-  // Imagen del avatar
-  .img-header {
-    border-radius: 50%;
-    border: 2px solid white;
-  }
+}
+
+img{
+  border-radius: 50%;
+  border: 2px solid white;
+  width: 88px;
+  height: auto;
 }

@@ -8,7 +8,6 @@
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
 
   // Secciones internas
-  &-img,
   &-title,
   &-btn {
     display: flex;
@@ -35,12 +34,5 @@
       opacity: 0.8;
     }
   }
-
-  // Imagen del avatar
-  img {
-    border-radius: 50%;
-    border: 2px solid white;
-  }
-
   
 }
