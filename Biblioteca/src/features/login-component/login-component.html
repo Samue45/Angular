@@ -1,1 +1,20 @@
-<p>login-component works!</p>
+<div>
+    <h2>Biblio</h2>
+
+    <form [formGroup]="miFormulario" (ngSubmit) = "send()">
+
+        <label for="email">Email</label>
+        <input formControlName="email" type="email" placeholder="Username or Email">
+        @if (miFormulario.get('email')?.invalid && miFormulario.get('email')?.touched) {
+            <p>El nombre es obligatorio (mínimo 3 caracteres)</p>
+        }
+
+        <label for="password">Password</label>
+        <input formArrayName="password" type="password" placeholder="Password">
+        <div *ngIf="miFormulario.get('password')?.invalid && miFormulario.get('password')?.touched">
+            <p>Formato de la contraseña inválida (mínimo 6 caracteres)</p>
+        </div>
+
+        <button type="submit">Start</button>
+    </form>
+</div>
