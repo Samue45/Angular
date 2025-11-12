@@ -5,12 +5,14 @@
 
         <label for="email">Email</label>
         <input formControlName="email" type="email" placeholder="Username or Email">
+        <!--Nueva forma para emplear código en el HTML, a partir de la versión 17 de Angular-->
         @if (miFormulario.get('email')?.invalid && miFormulario.get('email')?.touched) {
             <p>El nombre es obligatorio (mínimo 3 caracteres)</p>
         }
 
         <label for="password">Password</label>
         <input formArrayName="password" type="password" placeholder="Password">
+        <!--Forma tradicional empleando directivas-->
         <div *ngIf="miFormulario.get('password')?.invalid && miFormulario.get('password')?.touched">
             <p>Formato de la contraseña inválida (mínimo 6 caracteres)</p>
         </div>
