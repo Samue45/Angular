@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators, ɵInternalFormsSharedModule, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -12,7 +13,7 @@ import { CommonModule } from '@angular/common';
 export class LoginComponent {
     miFormulario: FormGroup;
 
-    constructor(){
+    constructor(private router: Router){
       this.miFormulario = new FormGroup({
         email: new FormControl('', [Validators.required, Validators.email]),
         password: new FormControl('',[Validators.required, Validators.minLength(6), Validators.pattern('^(?=.*[A-Z])(?=.*[a-z])(?=.*\\d).{6,}$')
@@ -22,9 +23,14 @@ export class LoginComponent {
 
     send() {
       if(this.miFormulario.valid){
-        //Llevar a la próxima ruta
+        //Simulación de un loggeo exitoso
+        localStorage.setItem('user', 'true');
+        // Permitimos acceso al home
+        this.router.navigate(['/home']);
       }else{
-
+        //Simulación de un loggeo no exitoso
+        //El guard no permite pasar al home
+         localStorage.removeItem('user');
       }
     }
 

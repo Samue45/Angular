@@ -1,22 +1,27 @@
-<div>
-    <h2>Biblio</h2>
+<div class="login-container">
+  <h2>Biblio</h2>
 
-    <form [formGroup]="miFormulario" (ngSubmit) = "send()">
+  <form [formGroup]="miFormulario" (ngSubmit)="send()">
 
-        <label for="email">Email</label>
-        <input formControlName="email" type="email" placeholder="Username or Email">
-        <!--Nueva forma para emplear código en el HTML, a partir de la versión 17 de Angular-->
-        @if (miFormulario.get('email')?.invalid && miFormulario.get('email')?.touched) {
-            <p>El nombre es obligatorio (mínimo 3 caracteres)</p>
-        }
+    <!-- Email -->
+    <label for="email">Email</label>
+    <input formControlName="email" type="email" placeholder="Username or Email" id="email">
+    
+    <!-- Mensaje de error -->
+    <p *ngIf="miFormulario.get('email')?.invalid && miFormulario.get('email')?.touched">
+      El email es obligatorio o inválido
+    </p>
 
-        <label for="password">Password</label>
-        <input formArrayName="password" type="password" placeholder="Password">
-        <!--Forma tradicional empleando directivas-->
-        <div *ngIf="miFormulario.get('password')?.invalid && miFormulario.get('password')?.touched">
-            <p>Formato de la contraseña inválida (mínimo 6 caracteres)</p>
-        </div>
+    <!-- Password -->
+    <label for="password">Password</label>
+    <input formControlName="password" type="password" placeholder="Password" id="password">
+    
+    <!-- Mensaje de error -->
+    <p *ngIf="miFormulario.get('password')?.invalid && miFormulario.get('password')?.touched">
+      La contraseña debe tener mínimo 6 caracteres, incluyendo mayúscula, minúscula y número
+    </p>
 
-        <button type="submit">Start</button>
-    </form>
+    <!-- Botón -->
+    <button type="submit">Start</button>
+  </form>
 </div>
