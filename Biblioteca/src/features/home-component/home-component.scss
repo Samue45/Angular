@@ -1,0 +1,80 @@
+.home-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 90vh;
+  background: linear-gradient(135deg, #f0f4ff, #e6ecff);
+  font-family: 'Segoe UI', Roboto, sans-serif;
+  color: #1e1e2f;
+  padding: 2rem;
+
+  .home-title {
+    font-size: 2.8rem;
+    font-weight: 700;
+    margin-bottom: 2rem;
+    color: #2b3a67;
+    letter-spacing: 1px;
+    text-shadow: 1px 1px 2px rgba(43, 58, 103, 0.2);
+  }
+
+  .welcome-card {
+    background: #fff;
+    border-radius: 1.5rem;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+    padding: 3rem 4rem;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+    &:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+    }
+
+    .welcome-text {
+      font-size: 1.6rem;
+      font-weight: 600;
+      color: #34495e;
+      margin-bottom: 2rem;
+    }
+
+    .btn-gestionar {
+      background: linear-gradient(135deg, #4a90e2, #357abd);
+      border: none;
+      color: white;
+      font-size: 1.1rem;
+      font-weight: 600;
+      padding: 0.9rem 2rem;
+      border-radius: 0.8rem;
+      cursor: pointer;
+      box-shadow: 0 4px 10px rgba(53, 122, 189, 0.3);
+      transition: all 0.3s ease;
+
+      &:hover {
+        background: linear-gradient(135deg, #357abd, #2b67a1);
+        transform: translateY(-2px);
+        box-shadow: 0 6px 14px rgba(43, 103, 161, 0.4);
+      }
+
+      &:active {
+        transform: translateY(0);
+        box-shadow: 0 3px 8px rgba(53, 122, 189, 0.25);
+      }
+    }
+  }
+
+  @media (max-width: 600px) {
+    .welcome-card {
+      padding: 2rem;
+      width: 90%;
+    }
+
+    .home-title {
+      font-size: 2.2rem;
+    }
+
+    .btn-gestionar {
+      width: 100%;
+    }
+  }
+}
