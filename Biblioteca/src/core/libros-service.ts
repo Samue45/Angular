@@ -124,4 +124,22 @@ export class LibrosService {
     //Se devuelve el objeto Subject como Observable
     return this.libros$.asObservable();
   }
+
+  getLibrosByName$(titulo:string): Observable<Libro[]>{
+    //Se devuelve el objeto Subject como Observable pero filtrando los datos por el título del libro
+
+    //1º Limpiamos la cadena obtenida
+    const cleanTitle = titulo.trim().toLowerCase(); 
+    
+    //2º Filtramos la lista de libros
+    const filteredBooks = this.libros.filter(libro => 
+      libro.titulo.toLowerCase().includes(cleanTitle)
+    );
+    
+    //3º Actualizamos el Subject con la lista filtrada
+    this.libros$.next(filteredBooks);
+    
+    //4º Devolvemos el Observable
+    return this.libros$.asObservable();
+  }
 }
