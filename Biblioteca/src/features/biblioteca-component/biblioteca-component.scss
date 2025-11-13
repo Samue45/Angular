@@ -1,0 +1,95 @@
+.biblioteca-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  background: #f7f9fc;
+  font-family: 'Segoe UI', Roboto, sans-serif;
+  color: #2c3e50;
+
+  /* ----- Barra superior ----- */
+  .navbar {
+    background: linear-gradient(135deg, #4a90e2, #357abd);
+    color: #fff;
+    padding: 1rem 2rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    .navbar-title {
+      font-size: 1.8rem;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      margin: 0;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+  }
+
+  /* ----- Zona de contenido principal ----- */
+  .content {
+    display: flex;
+    flex: 1;
+    overflow: hidden;
+    background: #eef2f9;
+  }
+
+  /* ----- Panel lateral ----- */
+  .sidebar {
+    width: 270px;
+    background: #ffffff;
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.05);
+    border-right: 1px solid #e1e5ee;
+    padding: 1.5rem;
+    transition: all 0.3s ease;
+
+    &:hover {
+      background: #f9fbff;
+    }
+  }
+
+  /* ----- Zona principal de los libros ----- */
+  .main-view {
+    flex: 1;
+    background: #fff;
+    border-radius: 1rem 0 0 0;
+    margin: 1rem;
+    padding: 2rem;
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.05);
+    overflow-y: auto;
+
+    /* Animación de entrada suave */
+    animation: fadeIn 0.4s ease-in-out;
+  }
+
+  /* ----- Animaciones y responsividad ----- */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @media (max-width: 900px) {
+    .content {
+      flex-direction: column;
+    }
+
+    .sidebar {
+      width: 100%;
+      border-right: none;
+      border-bottom: 1px solid #e1e5ee;
+      box-shadow: none;
+    }
+
+    .main-view {
+      margin: 0;
+      border-radius: 0;
+    }
+  }
+}
