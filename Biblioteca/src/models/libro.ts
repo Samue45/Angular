@@ -1,5 +1,5 @@
 export interface Libro {
-  isbn: string;          // Identificador único
+  isbn: string;         
   titulo: string;
   autor: string;
   fechaPrestamo: Date;
