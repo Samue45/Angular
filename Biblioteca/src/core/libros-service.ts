@@ -1,22 +1,15 @@
 import { Injectable } from '@angular/core';
 import { Libro } from '../models/libro';
 //Importaciones necesarias para poder crear un servicio basado en Observable
-import { Observable, Subject } from 'rxjs';
+import { BehaviorSubject, Observable, Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
 export class LibrosService {
-
-  //Instancia de la clase Subject
-  // Sólo el servicio debe tener acceso a esta propiedad
-  private libros$ = new Subject<Libro[]>();
   
   //Simulación de una base de datos llena de libros
-  private libros: Libro[];
-
-  constructor() {
-    this.libros = [
+  private libros: Libro[] = [
       {
         isbn: '978-84-376-0494-7',
         titulo: 'Don Quijote de la Mancha',
@@ -107,16 +100,22 @@ export class LibrosService {
         autor: 'Yuval Noah Harari',
         fechaPrestamo: new Date('2025-09-18'),
       },
-    ];
-  }
+    ];;
+
+
+  //Instancia de la clase BehaviorSubject, que permite devolver siempre el último valor emitido
+  // Sólo el servicio debe tener acceso a esta propiedad
+  private libros$ = new BehaviorSubject<Libro[]>(this.libros);
+
+  constructor() {}
 
   //Método para actulizar la lista de libros y actulizar los datos del observable
-  agregarLibro(libro : Libro){
+  /*agregarLibro(libro : Libro){
     //Añadimos el libro a la lista
     this.libros.push(libro);
     //Actulizamos los datos que contiene el observable pasandole la lista de libros con el nuevo dato
     this.libros$.next(this.libros);
-  }
+  }*/
 
   //Método que ofrece el Observable al cual los componentes se pueden suscribir para
   //estar al tanto de si ha habido algún cambio
@@ -125,8 +124,8 @@ export class LibrosService {
     return this.libros$.asObservable();
   }
 
-  getLibrosByName$(titulo:string): Observable<Libro[]>{
-    //Se devuelve el objeto Subject como Observable pero filtrando los datos por el título del libro
+  getLibrosByName$(titulo:string = ""): Observable<Libro[]>{
+    //Se devuelve el objeto BehaviorSubject como Observable pero filtrando los datos por el título del libro
 
     //1º Limpiamos la cadena obtenida
     const cleanTitle = titulo.trim().toLowerCase(); 
@@ -136,7 +135,7 @@ export class LibrosService {
       libro.titulo.toLowerCase().includes(cleanTitle)
     );
     
-    //3º Actualizamos el Subject con la lista filtrada
+    //3º Actualizamos el BehaviorSubject con la lista filtrada
     this.libros$.next(filteredBooks);
     
     //4º Devolvemos el Observable
