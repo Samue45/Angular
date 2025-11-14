@@ -1,0 +1,38 @@
+.buscador-container {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  max-width: 400px;
+  margin: 1rem auto;
+  background: #f5f6fa;
+  border-radius: 25px;
+  padding: 5px 10px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+
+  input {
+    flex: 1;
+    border: none;
+    outline: none;
+    background: transparent;
+    padding: 10px 15px;
+    font-size: 14px;
+    border-radius: 25px;
+
+    &::placeholder {
+      color: #999;
+    }
+  }
+
+  .btn-lupa {
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    font-size: 18px;
+    padding: 0 10px;
+    transition: color 0.2s;
+
+    &:hover {
+      color: #007bff;
+    }
+  }
+}
