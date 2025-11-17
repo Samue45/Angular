@@ -31,6 +31,7 @@ export class LoginComponent {
         //Simulación de un loggeo no exitoso
         //El guard no permite pasar al home
          localStorage.removeItem('user');
+         console.error("You must introduce an email and password")
       }
     }
 
