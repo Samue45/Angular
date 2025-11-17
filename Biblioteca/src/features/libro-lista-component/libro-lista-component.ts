@@ -4,11 +4,12 @@ import { Libro } from '../../models/libro';
 import { LibrosService } from '../../core/libros-service';
 import { CommonModule } from '@angular/common';
 import { FechaBonitaPipe } from '../../shared/pipes/fecha-bonita-pipe';
+import { Resaltar } from '../../shared/directives/resaltar';
 
 
 @Component({
   selector: 'app-libro-lista-component',
-  imports: [CommonModule, FechaBonitaPipe],
+  imports: [CommonModule, FechaBonitaPipe, Resaltar],
   templateUrl: './libro-lista-component.html',
   styleUrl: './libro-lista-component.scss',
 })
