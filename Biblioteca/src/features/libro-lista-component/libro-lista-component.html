@@ -13,7 +13,7 @@
       <td>{{ libro.autor }}</td>
       <!--Hacemos uso de una tubería(Pipe) para modificar el estilo visual de la fecha,
       ya que si no se vería con este formato = Sat Nov 01 2025 01:00:00 GMT+0100 (Central European Standard Time)-->
-      <td>{{ libro.fechaPrestamo | date:'dd/MM/yyyy'}}</td>
+      <td>{{ libro.fechaPrestamo | fechaBonita }}</td>
     </tr>
   </tbody>
 </table>

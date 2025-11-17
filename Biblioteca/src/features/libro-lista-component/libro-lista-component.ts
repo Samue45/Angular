@@ -3,11 +3,12 @@ import { Observable } from 'rxjs';
 import { Libro } from '../../models/libro';
 import { LibrosService } from '../../core/libros-service';
 import { CommonModule } from '@angular/common';
+import { FechaBonitaPipe } from '../../shared/pipes/fecha-bonita-pipe';
 
 
 @Component({
   selector: 'app-libro-lista-component',
-  imports: [CommonModule],
+  imports: [CommonModule, FechaBonitaPipe],
   templateUrl: './libro-lista-component.html',
   styleUrl: './libro-lista-component.scss',
 })
