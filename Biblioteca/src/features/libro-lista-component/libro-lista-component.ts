@@ -5,11 +5,12 @@ import { LibrosService } from '../../core/libros-service';
 import { CommonModule } from '@angular/common';
 import { FechaBonitaPipe } from '../../shared/pipes/fecha-bonita-pipe';
 import { Resaltar } from '../../shared/directives/resaltar';
+import { NgClass } from '@angular/common';
 
 
 @Component({
   selector: 'app-libro-lista-component',
-  imports: [CommonModule, FechaBonitaPipe, Resaltar],
+  imports: [CommonModule, FechaBonitaPipe, Resaltar,NgClass],
   templateUrl: './libro-lista-component.html',
   styleUrl: './libro-lista-component.scss',
 })

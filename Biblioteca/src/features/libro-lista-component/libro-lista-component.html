@@ -8,7 +8,8 @@
   </thead>
 
   <tbody>
-    <tr appResaltar  *ngFor="let libro of listaLibros" >
+    <!--No se pueden poner 2 directivas usando * en el mismo elemento, por eso ngClass está entre [ ] -->
+    <tr appResaltar  *ngFor="let libro of listaLibros" [ngClass]="{'vencido': libro.prestamoVencido}">
       <td>{{ libro.titulo }}</td>
       <td>{{ libro.autor }}</td>
       <!--Hacemos uso de una tubería(Pipe) para modificar el estilo visual de la fecha,

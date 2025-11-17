@@ -13,7 +13,7 @@ export class Resaltar {
   @HostListener('mouseenter')
   entrar() {
     this.renderer.setStyle(this.el.nativeElement, 'background-color', 'lightgreen');
-    this.renderer.setStyle(this.el.nativeElement, 'transform', 'scale(1.05)');
+    this.renderer.setStyle(this.el.nativeElement, 'transform', 'scale(1.01)');
   }
 
   @HostListener('mouseleave')

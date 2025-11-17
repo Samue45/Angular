@@ -39,6 +39,13 @@
         border-bottom: 1px solid #eceff5;
         color: #37474f;
       }
+
+      // ESTILO PARA LIBROS VENCIDOS
+      &.vencido {
+        color: #d32f2f; // rojo
+        font-weight: 700;
+        background-color: #ffe6e6; // fondo rosado
+      }
     }
   }
 }
