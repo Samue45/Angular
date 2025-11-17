@@ -132,7 +132,7 @@ export class LibrosService {
     
     //2º Filtramos la lista de libros
     const filteredBooks = this.libros.filter(libro => 
-      libro.titulo.toLowerCase().includes(cleanTitle)
+      libro.titulo.toLowerCase().startsWith(cleanTitle)
     );
     
     //3º Actualizamos el BehaviorSubject con la lista filtrada
